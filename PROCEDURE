@@ -1,0 +1,30 @@
+AIM :To remove duplicate records in the customer dataset and transform a transactional dataset into a dataset that has one record per customer using the IBM SPSS modeler.
+PROCEDURE :
+
+1.TO REMOVE DUPLICATE RECORDS
+STEP 1: Import the data file telco x customer data.xlsx using the Excel source node. Then add a Distinct node from the Record Ops palette.
+STEP 2: Edit the Distinct node. In the Settings tab. Click the Mode drop-down, to view the options. From the Mode, drop-down click Include only the first record in each group.
+[The Include only the first record in each group option retains only the first record of the group. You will need this option to remove duplicate record
+STEP 3: Click the Pick from the set of available fields button, click All and then click OK.
+Connect a Table node and execute it. Check the results. 
+
+2.AGGREGATE TRANSACTIONAL DATA
+STEP 1: Import the data file telco x products.dat file chose the field delimiter as Tab and newline, and add a Table node to it. Then Run this Table node. Close the Table output window.
+STEP 2: From the Record Ops palette, add an Aggregate node downstream to the source node telco x products.dat.
+STEP 3: Edit the Aggregate node. Click the Settings tab. In the Key Fields box, select CUSTOMER_ID.
+STEP 4: In the Basic Aggregates section, in the Aggregate fields sub-section, select REVENUES.
+Two statistics will be computed by default, mean and sum. Only the sum is required in this exercise.
+So, Click the check box in the Mean column so that it is disabled.
+STEP 5: Ensure that the Include record count in the field check box is enabled and then type NUMBER_OF_PRODUCTS in the text box.
+STEP 6: Click the Optimization tab. Click the Keys are contiguous check box to enable it.
+
+3.CREATE FLAG FIELDS AND AGGREGATE THE DATA
+STEP 1: From the Field Ops palette, add a Type node downstream from the Var.
+File node named telco x products.
+STEP 2: Edit the Type node. Click the Types tab and then Click Read Values
+STEP 3: Edit the SetToFlag node. In Settings tab click the Set fields drop down and then click gadget.
+STEP 5: Select all values in the Available set values box and then move them into the Create flag fields box.
+STEP 6: Click the Aggregate keys check box to enable it. In the Aggregate keys box, select CUSTOMER_ID. Click preview
+
+RESULT:
+Thus, the Set unit of analysis for the data Remove, Aggregate, Create Program has been Executed Successfully.
